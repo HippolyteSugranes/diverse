@@ -1,0 +1,17 @@
+n layers: input_dim = (m,1), output_dim (n,1)
+Z = WX + B - size: (n,1) = (n,m).(m,1) + (n,1)
+H = g(Z) - size: (n,1) = (n,1)
+
+next input : H
+
+
+BackPropagation: output_dim = (n,1), input_dim = (m,1)
+Inside a layer:
+dJ/dZ = dg/dZ . dJ/dH - size : (n,1) = (n,n).(n,1)
+dJ/dW = dJ/dZ . Xt - size : (n,m) = (n,1).(1,m)
+dJ/dB = dJ/dZ
+dJ/dX = Wt . dJ/dZ - size : (m,1) = (m,n) . (n,1)
+
+Actualisation:
+W <- W - lr . dJ/dW
+B <- B - lr . dJ/dB
